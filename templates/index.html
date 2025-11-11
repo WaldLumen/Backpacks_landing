@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Каталог товаров</title>
+    <style>
+                :root{
+            --bg:#f8f8f8; /* very light gray */
+            --card:#ededed; /* card gray */
+            --muted:#9aa0a6; /* muted text */
+            --accent:#4a4a4a; /* dark gray */
+            --accent-2:#737373;
+            --radius:12px;
+            --max:1100px;
+            --shadow: 0 6px 18px rgba(45,45,45,0.06);
+            font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            background:var(--bg);
+            color:var(--accent);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.45;
+            padding:32px 16px;
+            display:flex;
+            justify-content:center;
+        }
+        .wrap{width:100%;max-width:var(--max)}
+
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:16px;
+            margin-bottom:28px;
+        }
+        .brand{display:flex;align-items:center;gap:12px}
+        .logo{
+            width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#e9e9ea,#dcdcdc);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-2)
+        }
+        h1{margin:0;font-size:20px}
+        nav{font-size:14px;color:var(--muted)}
+        .hero{
+            display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px;padding:20px;border-radius:var(--radius);background:linear-gradient(180deg,#ffffff, #f3f4f5);box-shadow:var(--shadow)
+        }
+        .hero-left{max-width:62%}
+        .kicker{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+        .hero h2{margin:6px 0 12px;font-size:26px}
+        .hero p{margin:0;color:var(--accent-2)}
+        .cta{margin-top:14px}
+        .btn{
+            display:inline-block;padding:10px 16px;border-radius:10px;background:#2f2f2f;color:white;text-decoration:none;font-weight:600;font-size:14px;box-shadow:0 6px 14px rgba(47,47,47,0.08)
+        }
+        .btn.secondary{background:transparent;border:1px solid #e1e1e1;color:var(--accent-2);font-weight:600}
+
+        .hero-right{width:36%;display:flex;justify-content:right}
+        .hero-right img{width:160px;height:160px;border-radius:14px;background:linear-gradient(135deg,#efefef,#ddd);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted); object-fit:cover;}
+
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+
+        .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+        .product-media{height:360px; border-radius:12px;background:linear-gradient(180deg,#fff,#eaeaea);display:flex;align-items:center;justify-content:center;color:var(--muted);overflow:hidden}
+        .product-media img{width:100%;height:100%;object-fit:cover;}
+
+
+        .title{font-weight:700;font-size:16px}
+        .price{font-weight:700}
+        .meta{font-size:13px;color:var(--muted)}
+        .features{display:flex;gap:10px;flex-wrap:wrap}
+        .chip{background:transparent;border:1px solid #e0e0e0;padding:6px 8px;border-radius:999px;font-size:12px;color:var(--accent-2)}
+
+        footer{margin-top:26px;padding:18px;border-radius:10px;background:transparent;color:var(--muted);font-size:13px;text-align:center}
+
+        /* responsive tweaks */
+        @media (max-width:700px){
+            .hero{flex-direction:column;align-items:flex-start}
+            .hero-right{width:100%}
+            .hero-left{max-width:100%}
+        }
+
+                .carousel {
+          position: relative;
+          width: 100%;
+          height: 220px;
+          overflow: hidden;
+        }
+        .carousel img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          display: none;
+          border-radius: 12px 12px 12px 12px;
+        }
+        .carousel img.active {
+          display: block;
+        }
+        .carousel button {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0,0,0,0.5);
+          border: none;
+          color: white;
+          font-size: 18px;
+          cursor: pointer;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+        .carousel .prev { left: 10px; }
+        .carousel .next { right: 10px; }
+
+    </style>
+</head>
+<body>
+  <div class="wrap">
+  <header>
+        <div class="brand">
+            <div class="logo">RB</div>
+            <div>
+                <h1>RidgeBackpacks</h1>
+                <div style="font-size:13px;color:var(--muted)">Лёгкие рюкзаки для города и путешествий</div>
+            </div>
+        </div>
+        <nav>Каталог · Доставка · Контакты</nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="kicker">Новая коллекция</div>
+            <h2>Надёжные рюкзаки на каждый день</h2>
+            <p>Стильные и функциональные рюкзаки с продуманными отделениями, влагозащитой и эргономичной спинкой. Идеально для города, учёбы и коротких поездок.</p>
+            <div class="cta">
+                <a class="btn" href="#products">Посмотреть рюкзаки</a>
+                <a class="btn secondary" href="#contacts" style="margin-left:10px">Написать нам</a>
+            </div>
+        </div>
+        <div class="hero-right">
+                <img src="../static/hero-right-img.jpg" alt="hero-right">
+        </div>
+    </section>
+    <h1 style="display: flex; justify-content: center; margin: 32px 0;">Каталог товаров</h1>
+    <main class="grid">
+      {% for p in products[:9] %}
+      <article class="card">
+         <div class="product-media">
+            {% if p.pictures %}
+              <img src="{{ p.pictures[0] }}" alt="{{ p.name }}">
+            {% else %}
+              <div style="height:160px;display:flex;align-items:center;justify-content:center;color:#9aa0a6;">Нет фото</div>
+            {% endif %}
+      </div>
+        <div class="card-content">
+          <h3> {{ p.name[:30] ~ ('...' if p.name|length > 30 else '') }}</h3>
+          <div class="category">{{ p.category }}</div>
+        </div>
+       <div style="display:flex;justify-content:space-between;align-items:center">
+                <div class="price">{% if p.price %}₴{{ p.price|int if p.price is not none and p.price==p.price|int else p.price }}{% else %}---{% endif %}</div>
+                <div>
+                    <button class="btn" onclick="buy('{{ p.name}}', {{ p.price or 0 }})">Купить</button>
+                </div>
+            </div>
+      </article>
+      {% endfor %}
+
+    </main>
+
+  <div style="display: flex; justify-content: center; margin: 32px 0;">
+  <a href="/catalog"
+     style="
+        display: inline-block;
+        background: #2f2f2f;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 12px 24px;
+        border-radius: 10px;
+        box-shadow: 0 6px 14px rgba(47,47,47,0.08);
+        transition: background 0.3s ease;
+     "
+     onmouseover="this.style.background='#3d3d3d'"
+     onmouseout="this.style.background='#2f2f2f'">
+     Больше
+  </a>
+</div>
+
+      <footer id="contacts">
+            Бесплатная доставка по Украине при заказе от ₴3,000 · Поддержка: hello@ridgebackpacks.ua
+        </footer>
+
+
+
+  </div>
+
+
+</body>
+</html>
